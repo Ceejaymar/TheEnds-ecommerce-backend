@@ -39,6 +39,36 @@ CREATE TABlE products (
   "url" VARCHAR NOT NULL
 );
 
+-- CREATE TABLE sizes (
+
+-- );
+
+CREATE TABLE orders (
+    "id" SERIAL PRIMARY KEY,
+    "customer" INT REFERENCES users(id) NOT NULL,
+    "total" MONEY NOT NULL,
+    "OrderStatus" VARCHAR NOT NULL
+);
+
+CREATE TABLE orderline (
+    "id" SERIAL PRIMARY KEY,
+    "order_id" INT REFERENCES orders(id) NOT NULL,
+    "product_id" INT REFERENCES products(id) NOT NULL,
+    "size" VARCHAR,
+    "quantity" int NOT NULL
+);
+
+-- CREATE TABLE "FileUploads" (
+--     "FileUploadsID" int   NOT NULL,
+--     -- OrderID int FK >- Order.OrderID
+--     "ProductID" int   NOT NULL,
+--     "Url" string   NOT NULL,
+--     "UserID" int   NOT NULL,
+--     CONSTRAINT "pk_FileUploads" PRIMARY KEY (
+--         "FileUploadsID"
+--      )
+-- );
+
 INSERT INTO users (fname, lname, username, email, password, address, city, state, zipcode, seller) VALUES
 ('Carlos', 'Martinez', 'ceejaymar', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
 ('John', 'Chevy', 'knightblade', 'jc@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', false),
