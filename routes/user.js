@@ -1,9 +1,17 @@
 const express = require('express');
 const userRouter = express.Router();
+const UserService = require('../services/user');
 
 userRouter.get('/', (req, res, next) => {
-  console.log('this is working fammmm');
-  res.json('this is working fam');
+  UserService.read()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
 });
+
+// get all orders from user
 
 module.exports = userRouter;
