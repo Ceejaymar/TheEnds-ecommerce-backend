@@ -14,8 +14,7 @@ CREATE TABLE users (
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
-  "seller" boolean NOT NULL
-  -- hometown_id INT REFERENCES towns(id) NOT NULL
+  "seller" BOOLEAN NOT NULL
 );
 
 CREATE TABLE stores (
@@ -32,15 +31,13 @@ CREATE TABLE stores (
 
 CREATE TABlE products (
   "id" SERIAL PRIMARY KEY,
+  "store_id" INT REFERENCES stores(id) NOT NULL,
   "name" VARCHAR NOT NULL,
-  "price" money NOT NULL,
-  "storeID" int NOT NULL,
+  "price" MONEY NOT NULL,
   "category" VARCHAR NOT NULL,
-  "quantity" int   NOT NULL
+  "quantity" INT NOT NULL,
+  "url" VARCHAR NOT NULL
 );
-
--- INSERT INTO towns (name) VALUES
--- ('Pallet Town'), ('Viridian City'), ('Pewter City'), ('Cerulean City'), ('Vermillion City'), ('Lavender Town'), ('Celadon City'), ('Fuchsia City'), ('Saffron City'), ('Cinnabar Island');
 
 INSERT INTO users (fname, lname, username, email, password, address, city, state, zipcode, seller) VALUES
 ('Carlos', 'Martinez', 'ceejaymar', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
@@ -51,8 +48,26 @@ INSERT INTO users (fname, lname, username, email, password, address, city, state
 ('Ash', 'Ketchum', 'pallettownking', '3@gmail.com', 'littt', '1 Menahan ave', 'Pallet Town', 'Kanto', '11345', false),
 ('Joe', 'Cruz', 'gumwrappin', '4@gmail.com', 'littt', '1 Menahan ave', 'Queens', 'New York', '11345', true);
 
-
 INSERT INTO stores (user_id, name, address, city, state, zipcode) VALUES
 (1, 'SolidBlack', '212 Throop ave', 'Brooklyn', 'New York', '11206'),
-(1, 'byHOME', '10 Homey ave', 'New York', 'New York', '11001'),
-(1, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306')
+(3, 'byHOME', '10 Homey ave', 'New York', 'New York', '11001'),
+(5, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306');
+
+INSERT INTO products (store_id, name, price, category, quantity, url) VALUES
+(1, 'Grey', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/260/13779375-1370-40c1-abb4-93b5caa1b7052x.jpg'),
+(1, 'orange', 25.00, 'tops', 25, 'https://photo-cdn.icons8.com/assets/previews/866/1ed641c6-49f3-47f9-a621-a87f0c4580de2x.jpg'),
+(1, 'yellow', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/280/c68fd564-49e6-4eb9-9037-a084a7afa0192x.jpg'),
+(1, 'white stripes', 9.99, 'tops', 5, 'https://photo-cdn.icons8.com/assets/previews/854/badfb2f1-30d8-4b82-ae7d-a9efd94dc1c62x.jpg'),
+(1, 'firebrick', 25.00, 'tops', 17, 'https://photo-cdn.icons8.com/assets/previews/370/afc9e21c-ce4f-49a1-b511-edcd7dbc7edd2x.jpg'),
+(1, 'knit tan', 9.99, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/374/d7befafb-1784-4861-abda-c74a673a00a02x.jpg'),
+(2, 'Long T-shirt tan', 25.00, 'tops', 5, 'https://photo-cdn.icons8.com/assets/previews/255/79e00fcd-d720-4135-9742-96f62c4601e92x.jpg'),
+(2, 'pastel pink', 9.99, 'tops', 25, 'https://photo-cdn.icons8.com/assets/previews/257/d22f24ca-54b6-4623-a6a4-b25f606039c32x.jpg'),
+(2, 'short pink', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/413/4225cc56-2bbf-4622-af7a-eedccd3aff3f2x.jpg'),
+(2, 'short grey', 9.99, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/265/602c9ae2-914d-48c2-ad0f-07eaaaca302a2x.jpg'),
+(2, 'short white', 9.99, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/432/22316bc2-8fc0-4529-8653-974c02efb1cf2x.jpg'),
+(2, 'short green', 9.99, 'tops', 20, 'https://photos.icons8.com/basic-khaki-t-shirt-5ba920738b6588000152f6c3'),
+(3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1533339140/D06154-8973-9401-F02/G-Star-RAW%25C2%25AE-Motac-Deconstructed-3D-Slim-Jeans-Medium-blue.jpg'),
+(3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1537366760/51001-8970-082-F02/G-Star-RAW%25C2%25AE-3301-Slim-Jeans-Black.jpg'),
+(3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1543328886/D05655-7209-89-F02/G-Star-RAW%25C2%25AE-5620-G-Star-Elwood-3D-Straight-Jeans-Dark-blue.jpg'),
+(3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1549362581/51001-8968-8436-F02/G-Star-RAW%25C2%25AE-3301-Slim-Jeans-Medium-blue.jpg'),
+(3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1524342640/51010-7101-2967-F02/G-Star-RAW%25C2%25AE-Revend-Skinny-Jeans-Black.jpg');
