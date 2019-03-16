@@ -22,8 +22,6 @@ UserService.read = (id) => {
   return db.one(sql, { id })
 }
 
-// get all orders for particular user
-
 UserService.update = (id, fname, lname, username, email, password, address, city, state, zipcode, seller) => {
   const sql = `
     UPDATE users
@@ -50,5 +48,18 @@ UserService.delete = (id) => {
   `;  
   return db.none(sql, { id });
 }
+
+UserService.getUserOrders = (id) => {
+  const sql = `
+    SELECT
+      orders.*
+    FROM orders
+    JOIN users
+      on users.id = orders.customer
+    WHERE
+      users.id = $[id] 
+  `;
+  return db.any(sql, { id })
+} 
 
 module.exports = UserService;

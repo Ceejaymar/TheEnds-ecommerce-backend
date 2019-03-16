@@ -51,12 +51,16 @@ userRouter.delete('/:id', (req, res, next) => {
     });
 });
 
-// userRouter.get('/:id', (req, res, next) => {
-//   UserService.read
-// })
+userRouter.get('/:id/orders', (req, res, next) => {
+  const { id } = req.params;
 
-
-// get all orders from user
-// 
+  UserService.getUserOrders(id)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = userRouter;
