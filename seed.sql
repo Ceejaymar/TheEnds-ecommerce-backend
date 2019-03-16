@@ -24,9 +24,9 @@ CREATE TABLE stores (
   "address" VARCHAR NOT NULL,
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
-  "zipcode" VARCHAR NOT NULL
-  -- createdAt DATETIME
-  -- updatedAt DATETIME
+  "zipcode" VARCHAR NOT NULL,
+  "createdAt" TIMESTAMP[] NOT NULL default array[now()],
+  "updatedAt" TIMESTAMP[] NOT NULL default array[now()]
 );
 
 CREATE TABlE products (
@@ -47,7 +47,9 @@ CREATE TABLE orders (
     "id" SERIAL PRIMARY KEY,
     "customer" INT REFERENCES users(id) NOT NULL,
     "total" MONEY NOT NULL,
-    "status" VARCHAR NOT NULL
+    "status" VARCHAR NOT NULL,
+    "createdAt" TIMESTAMP[] NOT NULL default array[now()],
+    "updatedAt" TIMESTAMP[] NOT NULL default array[now()]
 );
 
 CREATE TABLE orderline (
@@ -84,7 +86,7 @@ INSERT INTO stores (user_id, name, address, city, state, zipcode) VALUES
 (5, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306');
 
 INSERT INTO products (store_id, name, price, category, quantity, url) VALUES
-(1, 'Grey', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/260/13779375-1370-40c1-abb4-93b5caa1b7052x.jpg'),
+(1, 'grey', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/260/13779375-1370-40c1-abb4-93b5caa1b7052x.jpg'),
 (1, 'orange', 25.00, 'tops', 25, 'https://photo-cdn.icons8.com/assets/previews/866/1ed641c6-49f3-47f9-a621-a87f0c4580de2x.jpg'),
 (1, 'yellow', 25.00, 'tops', 20, 'https://photo-cdn.icons8.com/assets/previews/280/c68fd564-49e6-4eb9-9037-a084a7afa0192x.jpg'),
 (1, 'white stripes', 9.99, 'tops', 5, 'https://photo-cdn.icons8.com/assets/previews/854/badfb2f1-30d8-4b82-ae7d-a9efd94dc1c62x.jpg'),
@@ -107,3 +109,12 @@ INSERT INTO orders (customer, total, status) VALUES
 (1, 50, 'shipped'),
 (1, 19.98, 'shipped'),
 (1, 34.99, 'shipped');
+
+INSERT INTO orderline (order_id, product_id, size, quantity) VALUES
+(1, 10, 'medium', 1),
+(1, 11, 'medium', 1),
+(2, 2, 'large', 1),
+(2, 2, 'large', 1),
+(3, 4, 'large', 2),
+(4, 1, 'x-large', 1),
+(4, 4, 'x-large', 1);
