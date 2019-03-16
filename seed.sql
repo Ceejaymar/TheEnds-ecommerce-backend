@@ -47,7 +47,7 @@ CREATE TABLE orders (
     "id" SERIAL PRIMARY KEY,
     "customer" INT REFERENCES users(id) NOT NULL,
     "total" MONEY NOT NULL,
-    "OrderStatus" VARCHAR NOT NULL
+    "status" VARCHAR NOT NULL
 );
 
 CREATE TABLE orderline (
@@ -101,3 +101,9 @@ INSERT INTO products (store_id, name, price, category, quantity, url) VALUES
 (3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1543328886/D05655-7209-89-F02/G-Star-RAW%25C2%25AE-5620-G-Star-Elwood-3D-Straight-Jeans-Dark-blue.jpg'),
 (3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1549362581/51001-8968-8436-F02/G-Star-RAW%25C2%25AE-3301-Slim-Jeans-Medium-blue.jpg'),
 (3, 'pants Blue', 9.99, 'bottoms', 20, 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1524342640/51010-7101-2967-F02/G-Star-RAW%25C2%25AE-Revend-Skinny-Jeans-Black.jpg');
+
+INSERT INTO orders (customer, total, status) VALUES
+(1, 34.99, 'shipped'),
+(1, 50, 'shipped'),
+(1, 19.98, 'shipped'),
+(1, 34.99, 'shipped');
