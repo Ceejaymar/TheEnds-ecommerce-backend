@@ -42,6 +42,7 @@ UserService.update = (id, fname, lname, username, email, password, address, city
   return db.none(sql, { id, fname, lname, username, email, password, address, city, state, zipcode, seller })
 }
 
+//Need to make sure this cascades
 UserService.delete = (id) => {
   const sql =  `
     DELETE FROM users WHERE id = $[id]
