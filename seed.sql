@@ -48,7 +48,7 @@ CREATE TABLE orders (
     "customer" INT REFERENCES users(id) NOT NULL,
     "total" MONEY NOT NULL,
     "status" VARCHAR NOT NULL,
-    "createdAt" TIMESTAMP[] NOT NULL default array[now()],
+    "createdAt" TIMESTAMP NOT NULL default now(),
     "updatedAt" TIMESTAMP[] NOT NULL default array[now()]
 );
 
@@ -59,17 +59,6 @@ CREATE TABLE orderline (
     "size" VARCHAR,
     "quantity" int NOT NULL
 );
-
--- CREATE TABLE "FileUploads" (
---     "FileUploadsID" int   NOT NULL,
---     -- OrderID int FK >- Order.OrderID
---     "ProductID" int   NOT NULL,
---     "Url" string   NOT NULL,
---     "UserID" int   NOT NULL,
---     CONSTRAINT "pk_FileUploads" PRIMARY KEY (
---         "FileUploadsID"
---      )
--- );
 
 INSERT INTO users (fname, lname, username, email, password, address, city, state, zipcode, seller) VALUES
 ('Carlos', 'Martinez', 'ceejaymar', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
