@@ -25,8 +25,8 @@ CREATE TABLE stores (
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
-  "createdAt" TIMESTAMP[] NOT NULL default array[now()],
-  "updatedAt" TIMESTAMP[] NOT NULL default array[now()]
+  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABlE products (
@@ -48,8 +48,8 @@ CREATE TABLE orders (
     "customer" INT REFERENCES users(id) NOT NULL,
     "total" MONEY NOT NULL,
     "status" VARCHAR NOT NULL,
-    "createdAt" TIMESTAMP NOT NULL default now(),
-    "updatedAt" TIMESTAMP[] NOT NULL default array[now()]
+    "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+    "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE orderline (
@@ -57,7 +57,7 @@ CREATE TABLE orderline (
     "order_id" INT REFERENCES orders(id) NOT NULL,
     "product_id" INT REFERENCES products(id) NOT NULL,
     "size" VARCHAR,
-    "quantity" int NOT NULL
+    "quantity" INT NOT NULL
 );
 
 INSERT INTO users (fname, lname, username, email, password, address, city, state, zipcode, seller) VALUES
