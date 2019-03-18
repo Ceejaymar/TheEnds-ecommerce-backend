@@ -9,7 +9,7 @@ UserService.create = (fname, lname, username, email, password, address, city, st
       ($[fname], $[lname], $[username], $[email], $[password], $[address], $[city], $[state], $[zipcode], $[seller])  
     RETURNING id;  
   `;
-  return db.one(sql, { fname, lname, username, email, password, address, city, state, zipcode, seller })
+  return db.one(sql, { fname, lname, username, email, password, address, city, state, zipcode, seller });
 }
 
 UserService.read = (id) => {
@@ -19,7 +19,7 @@ UserService.read = (id) => {
     WHERE
       users.id = $[id]
   `;
-  return db.one(sql, { id })
+  return db.one(sql, { id });
 }
 
 UserService.update = (id, fname, lname, username, email, password, address, city, state, zipcode, seller) => {
@@ -39,7 +39,7 @@ UserService.update = (id, fname, lname, username, email, password, address, city
     WHERE 
       users.id = $[id]
   `;
-  return db.none(sql, { id, fname, lname, username, email, password, address, city, state, zipcode, seller })
+  return db.none(sql, { id, fname, lname, username, email, password, address, city, state, zipcode, seller });
 }
 
 //Need to make sure this cascades
@@ -56,11 +56,11 @@ UserService.getUserOrders = (id) => {
       orders.*
     FROM orders
     JOIN users
-      on users.id = orders.customer
+      ON users.id = orders.customer
     WHERE
       users.id = $[id] 
   `;
-  return db.any(sql, { id })
+  return db.any(sql, { id });
 } 
 
 module.exports = UserService;
