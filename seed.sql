@@ -41,20 +41,20 @@ CREATE TABlE products (
 );
 
 CREATE TABLE orders (
-    "id" SERIAL PRIMARY KEY,
-    "customer" INT REFERENCES users(id) NOT NULL,
-    "total" MONEY NOT NULL,
-    "status" VARCHAR NOT NULL,
-    "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-    "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "id" SERIAL PRIMARY KEY,
+  "customer" INT REFERENCES users(id) NOT NULL,
+  "total" MONEY NOT NULL,
+  "status" VARCHAR NOT NULL,
+  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE orderline (
-    "id" SERIAL PRIMARY KEY,
-    "order_id" INT REFERENCES orders(id) NOT NULL,
-    "product_id" INT REFERENCES products(id) NOT NULL,
-    "size" VARCHAR,
-    "quantity" INT NOT NULL
+  "id" SERIAL PRIMARY KEY,
+  "order_id" INT REFERENCES orders(id) NOT NULL,
+  "product_id" INT REFERENCES products(id) NOT NULL,
+  "size" VARCHAR,
+  "quantity" INT NOT NULL
 );
 
 INSERT INTO users (fname, lname, username, email, token, address, city, state, zipcode, seller) VALUES
@@ -97,8 +97,8 @@ INSERT INTO orders (customer, total, status) VALUES
 (1, 34.99, 'shipped');
 
 INSERT INTO orderline (order_id, product_id, size, quantity) VALUES
+(1, 9, 'medium', 1),
 (1, 10, 'medium', 1),
-(1, 11, 'medium', 1),
 (2, 2, 'large', 1),
 (2, 2, 'large', 1),
 (3, 4, 'large', 2),
