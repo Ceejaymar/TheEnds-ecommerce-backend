@@ -7,14 +7,15 @@ CREATE TABLE users (
   "id" SERIAL PRIMARY KEY,
   "fname" VARCHAR NOT NULL,
   "lname" VARCHAR NOT NULL,
-  "username" VARCHAR UNIQUE NOT NULL,
   "email" VARCHAR UNIQUE NOT NULL,
   "token" VARCHAR NOT NULL,
   "address" VARCHAR NOT NULL,
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
-  "seller" BOOLEAN NOT NULL
+  "seller" BOOLEAN NOT NULL,
+  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE stores (
@@ -37,7 +38,9 @@ CREATE TABlE products (
   "category" VARCHAR NOT NULL,
   "quantity" INT NOT NULL,
   "url" VARCHAR NOT NULL,
-  "stock" JSON NOT NULL
+  "stock" JSON NOT NULL,
+  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE orders (
@@ -54,17 +57,19 @@ CREATE TABLE orderline (
   "order_id" INT REFERENCES orders(id) NOT NULL,
   "product_id" INT REFERENCES products(id) NOT NULL,
   "size" VARCHAR,
-  "quantity" INT NOT NULL
+  "quantity" INT NOT NULL,
+  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-INSERT INTO users (fname, lname, username, email, token, address, city, state, zipcode, seller) VALUES
-('Carlos', 'Martinez', 'ceejaymar', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
-('John', 'Chevy', 'knightblade', 'jc@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', false),
-('Rigo', 'Berto', 'coppermonkey', 'rb@gmail.com', 'littt', '1 Menahan ave', 'Brooklyn', 'New York', '11345', true),
-('Inoue', 'Kizaru', 'inouek', '1@gmail.com', 'littt', '1 Driggs ave', 'Brooklyn', 'New York', '11345', false),
-('Anne', 'Diaz', 'arresteddiaz', '2@gmail.com', 'littt', '1 Menahan ave', 'Brooklyn', 'New York', '11345', true),
-('Ash', 'Ketchum', 'pallettownking', '3@gmail.com', 'littt', '1 Menahan ave', 'Pallet Town', 'Kanto', '11345', false),
-('Joe', 'Cruz', 'gumwrappin', '4@gmail.com', 'littt', '1 Menahan ave', 'Queens', 'New York', '11345', true);
+INSERT INTO users (fname, lname, email, token, address, city, state, zipcode, seller) VALUES
+('Carlos', 'Martinez', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
+('John', 'Chevy', 'jc@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', false),
+('Rigo', 'Berto', 'rb@gmail.com', 'littt', '1 Menahan ave', 'Brooklyn', 'New York', '11345', true),
+('Inoue', 'Kizaru', '1@gmail.com', 'littt', '1 Driggs ave', 'Brooklyn', 'New York', '11345', false),
+('Anne', 'Diaz', '2@gmail.com', 'littt', '1 Menahan ave', 'Brooklyn', 'New York', '11345', true),
+('Ash', 'Ketchum', '3@gmail.com', 'littt', '1 Menahan ave', 'Pallet Town', 'Kanto', '11345', false),
+('Joe', 'Cruz', '4@gmail.com', 'littt', '1 Menahan ave', 'Queens', 'New York', '11345', true);
 
 INSERT INTO stores (user_id, name, address, city, state, zipcode) VALUES
 (1, 'SolidBlack', '212 Throop ave', 'Brooklyn', 'New York', '11206'),
