@@ -44,7 +44,7 @@ UserService.update = (id, fname, lname, username, email, password, address, city
 
 //Need to make sure this cascades
 UserService.delete = (id) => {
-  const sql =  `
+  const sql = `
     DELETE FROM users WHERE id = $[id]
   `;  
   return db.none(sql, { id });
