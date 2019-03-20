@@ -2,6 +2,7 @@ const express = require('express');
 const storeRouter = express.Router();
 const StoreService = require('../services/store');
 
+// Get all products for one store
 storeRouter.get('/:id/products', (req, res, next) => {
   const { id } = req.params;
 
@@ -14,6 +15,7 @@ storeRouter.get('/:id/products', (req, res, next) => {
     });
 });
 
+// Get all orders for one store
 storeRouter.get('/:id/orders', (req, res, next) => {
   const { id } = req.params;
 
