@@ -2,6 +2,7 @@ const express = require('express');
 const userRouter = express.Router();
 const UserService = require('../services/user');
 
+// Create new user
 userRouter.post('/', (req, res, next) => {
   const { fname, lname, username, email, password, address, city, state, zipcode, seller } = req.body;
 
@@ -14,6 +15,7 @@ userRouter.post('/', (req, res, next) => {
     });
 });
 
+// Get user info
 userRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
 
@@ -26,6 +28,7 @@ userRouter.get('/:id', (req, res, next) => {
     });
 });
 
+// Update user
 userRouter.put('/:id', (req, res, next) => {
   const { id } = req.params;
   const { fname, lname, username, email, password, address, city, state, zipcode, seller } = req.body;
@@ -39,6 +42,7 @@ userRouter.put('/:id', (req, res, next) => {
     });
 });
 
+// Delete user
 userRouter.delete('/:id', (req, res, next) => {
   const { id } = req.params;
 
@@ -51,6 +55,7 @@ userRouter.delete('/:id', (req, res, next) => {
     });
 });
 
+// Get all orders for one user
 userRouter.get('/:id/orders', (req, res, next) => {
   const { id } = req.params;
 
