@@ -56,6 +56,7 @@ CREATE TABLE orderline (
   "id" SERIAL PRIMARY KEY,
   "order_id" INT REFERENCES orders(id) NOT NULL,
   "product_id" INT REFERENCES products(id) NOT NULL,
+  -- "store_id" INT REFERENCES stores(id) NOT NULL,
   "size" VARCHAR,
   "quantity" INT NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
