@@ -14,7 +14,6 @@ StoreService.getStoreProducts = (id) => {
   return db.any(sql, { id });
 }
 
-
 //I want to get all order for store id that I pass in
 //Products have the reference to a store ID
 //Orderline has a reference to the products id
