@@ -2,6 +2,7 @@ const express = require('express');
 const orderRouter = express.Router();
 const OrderServices = require('../services/order');
 
+// Get order info
 orderRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
 
@@ -13,5 +14,8 @@ orderRouter.get('/:id', (req, res, next) => {
       next(err);
     });
 });
+
+// Update order info
+
 
 module.exports = orderRouter;
