@@ -35,7 +35,8 @@ UserService.update = (id, fname, lname, username, email, password, address, city
       city = $[city],
       state = $[state], 
       zipcode = $[zipcode], 
-      seller = $[seller]
+      seller = $[seller],
+      updatedat = NOW()
     WHERE 
       users.id = $[id]
   `;

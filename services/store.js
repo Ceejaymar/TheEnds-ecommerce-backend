@@ -37,7 +37,8 @@ StoreService.update = (id, name, address, city, state, zipcode) => {
       address = $[address], 
       city = $[city], 
       state = $[state], 
-      zipcode = $[zipcode]
+      zipcode = $[zipcode],
+      updatedat = NOW()
     WHERE
       stores.id = $[id]
   `;
