@@ -17,11 +17,11 @@ orderRouter.get('/:id', (req, res, next) => {
 
 // Create order info
 orderRouter.post('/', (req, res, next) => {
-  const { customer, total, status, order_id } = req.body;
+  const { customer, total, status } = req.body;
 
-  OrderServices.create(customer, total, status, order_id)
+  OrderServices.create(customer, total, status)
     .then(data => {
-      res.json("Success: Order created")
+      res.json(`Success: Order created with id: ${data.id}`)
     })
     .catch(err => {
       next(err);
@@ -29,6 +29,18 @@ orderRouter.post('/', (req, res, next) => {
 });
 
 // Update order info
+orderRouter.put('/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  OrderServices.update(id, status)
+    .then(() => {
+      res.json("Success: Order updated");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 
 module.exports = orderRouter;
