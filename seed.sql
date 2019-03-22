@@ -20,19 +20,22 @@ CREATE TABLE users (
 
 CREATE TABLE stores (
   "id" SERIAL PRIMARY KEY,
-  "user_id" INT REFERENCES users(id) NOT NULL,
+  "user_id" INT NOT NULL,
   "name" VARCHAR NOT NULL,
   "address" VARCHAR NOT NULL,
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (user_id) 
+    REFERENCES users(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABlE products (
   "id" SERIAL PRIMARY KEY,
-  "store_id" INT REFERENCES stores(id) NOT NULL,
+  "store_id" INT NOT NULL,
   "name" VARCHAR NOT NULL,
   "price" MONEY NOT NULL,
   "category" VARCHAR NOT NULL,
@@ -40,27 +43,42 @@ CREATE TABlE products (
   "url" VARCHAR NOT NULL,
   "stock" JSON NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (store_id) 
+    REFERENCES stores(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE orders (
   "id" SERIAL PRIMARY KEY,
-  "customer" INT REFERENCES users(id) NOT NULL,
+  "customer" INT NOT NULL,
   "total" MONEY NOT NULL,
   "status" VARCHAR NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (customer) 
+    REFERENCES users(id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE orderline (
   "id" SERIAL PRIMARY KEY,
-  "order_id" INT REFERENCES orders(id) NOT NULL,
-  "product_id" INT REFERENCES products(id) NOT NULL,
-  -- "store_id" INT REFERENCES stores(id) NOT NULL,
+  "order_id" INT NOT NULL,
+  "product_id" INT NOT NULL,
+  "store_id" INT NOT NULL,
   "size" VARCHAR,
   "quantity" INT NOT NULL,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (order_id) 
+      REFERENCES orders(id)
+      ON DELETE CASCADE,
+    FOREIGN KEY (product_id) 
+      REFERENCES products(id)
+      ON DELETE CASCADE,
+    FOREIGN KEY (store_id) 
+      REFERENCES stores(id)
+      ON DELETE CASCADE
 );
 
 INSERT INTO users (fname, lname, email, token, address, city, state, zipcode, seller) VALUES
@@ -102,11 +120,11 @@ INSERT INTO orders (customer, total, status) VALUES
 (1, 19.98, 'shipped'),
 (1, 34.99, 'shipped');
 
-INSERT INTO orderline (order_id, product_id, size, quantity) VALUES
-(1, 9, 'medium', 1),
-(1, 10, 'medium', 1),
-(2, 2, 'large', 1),
-(2, 2, 'large', 1),
-(3, 4, 'large', 2),
-(4, 1, 'x-large', 1),
-(4, 4, 'x-large', 1);
+INSERT INTO orderline (order_id, product_id, store_id, size, quantity) VALUES
+(1, 9, 2, 'medium', 1),
+(1, 10, 2,'medium', 1),
+(2, 2, 1, 'large', 1),
+(2, 2, 1, 'large', 1),
+(3, 4, 1, 'large', 2),
+(4, 1, 1, 'x-large', 1),
+(4, 4, 1, 'x-large', 1);
