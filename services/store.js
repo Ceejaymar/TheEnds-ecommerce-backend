@@ -14,10 +14,9 @@ StoreService.getStoreProducts = (id) => {
   return db.any(sql, { id });
 }
 
-// Getting duplicate order because they have multiple items in them
 StoreService.getStoreOrders = (id) => {
   const sql = `
-    SELECT 
+    SELECT DISTINCT
       orders.*
     FROM stores
     JOIN orderline
