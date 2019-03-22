@@ -15,9 +15,22 @@ productRouter.get('/:id', (req, res, next) => {
     });
 });
 
+// Create product
+productRouter.post('/', (req, res, next) => {
+  const { store_id, name, price, category, description, url, stock } = req.body;
+
+  ProductService.create(store_id, name, price, category, description, url, stock)
+    .then(data => {
+      res.json(`Success: Product created with id: ${data.id}`);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Update product
 productRouter.put('/id', (req, res, next) => {
-  // const { id } = req.params;
+  const { id } = req.params;
   const { name, price, category, description, url, stock } = req.body;
 
   ProductService.update(id)
