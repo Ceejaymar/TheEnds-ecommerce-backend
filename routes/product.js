@@ -29,13 +29,14 @@ productRouter.post('/', (req, res, next) => {
 });
 
 // Update product
-productRouter.put('/id', (req, res, next) => {
+productRouter.put('/:id', (req, res, next) => {
   const { id } = req.params;
   const { name, price, category, description, url, stock } = req.body;
+  const updatedAt = Date.now();
 
-  ProductService.update(id)
+  ProductService.update(id, name, price, category, description, url, stock, updatedAt)
     .then(data => {
-      res.json(data);
+      res.json("Success: Product updated");
     })
     .catch(err => {
       next(err);

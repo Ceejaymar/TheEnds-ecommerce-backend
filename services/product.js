@@ -22,11 +22,20 @@ ProductService.create = (store_id, name, price, category, description, url, stoc
   return db.one(sql, { store_id, name, price, category, description, url, stock });
 };
 
-ProductService.update = (name, price, category, description, url, stock) => {
+ProductService.update = (id, name, price, category, description, url, stock, updatedAt) => {
   const sql = `
-  
+    UPDATE products
+    SET
+      name = $[name], 
+      price = $[price], 
+      category = $[category], 
+      description = $[description], 
+      url = $[url], 
+      stock = $[stock]
+    WHERE
+      products.id = $[id]
   `;
-  return db.none(sql, { name, price, category, description, url, stock });
+  return db.none(sql, { id, name, price, category, description, url, stock, updatedAt });
 };
 
 ProductService.delete = (id) => {
