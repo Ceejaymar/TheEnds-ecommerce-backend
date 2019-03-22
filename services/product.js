@@ -29,7 +29,6 @@ ProductService.update = (name, price, category, description, url, stock) => {
   return db.none(sql, { name, price, category, description, url, stock });
 };
 
-// Needs to cascade
 ProductService.delete = (id) => {
   const sql =  `
     DELETE FROM products 
