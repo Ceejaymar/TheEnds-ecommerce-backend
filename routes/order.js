@@ -16,6 +16,17 @@ orderRouter.get('/:id', (req, res, next) => {
 });
 
 // Create order info
+orderRouter.post('/', (req, res, next) => {
+  const { customer, total, status, order_id } = req.body;
+
+  OrderServices.create(customer, total, status, order_id)
+    .then(data => {
+      res.json("Success: Order created")
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 // Update order info
 
