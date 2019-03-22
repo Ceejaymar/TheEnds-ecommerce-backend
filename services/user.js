@@ -10,7 +10,7 @@ UserService.create = (fname, lname, username, email, password, address, city, st
     RETURNING id;  
   `;
   return db.one(sql, { fname, lname, username, email, password, address, city, state, zipcode, seller });
-}
+};
 
 UserService.read = (id) => {
   const sql = `
@@ -21,7 +21,7 @@ UserService.read = (id) => {
       users.id = $[id]
   `;
   return db.one(sql, { id });
-}
+};
 
 UserService.update = (id, fname, lname, username, email, password, address, city, state, zipcode, seller) => {
   const sql = `
@@ -43,7 +43,7 @@ UserService.update = (id, fname, lname, username, email, password, address, city
       users.id = $[id]
   `;
   return db.none(sql, { id, fname, lname, username, email, password, address, city, state, zipcode, seller });
-}
+};
 
 UserService.delete = (id) => {
   const sql = `
@@ -53,7 +53,7 @@ UserService.delete = (id) => {
       id = $[id]
   `;  
   return db.none(sql, { id });
-}
+};
 
 UserService.getUserOrders = (id) => {
   const sql = `
@@ -66,6 +66,6 @@ UserService.getUserOrders = (id) => {
       users.id = $[id] 
   `;
   return db.any(sql, { id });
-} 
+};
 
 module.exports = UserService;

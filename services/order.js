@@ -16,6 +16,6 @@ OrderService.read = (id) => {
       orders.id = $[id]
   `;
   return db.any(sql, { id });
-}
+};
 
 module.exports = OrderService;

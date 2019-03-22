@@ -12,7 +12,7 @@ StoreService.getStoreProducts = (id) => {
       stores.id = $[id]
   `;
   return db.any(sql, { id });
-}
+};
 
 StoreService.getStoreOrders = (id) => {
   const sql = `
@@ -27,7 +27,7 @@ StoreService.getStoreOrders = (id) => {
       orderline.store_id = $[id]
   `;
   return db.any(sql, { id });
-}
+};
 
 StoreService.update = (id, name, address, city, state, zipcode) => {
   const sql = `

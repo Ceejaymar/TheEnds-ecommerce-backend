@@ -41,7 +41,7 @@ ProductService.update = (id, name, price, category, description, url, stock) => 
 };
 
 ProductService.delete = (id) => {
-  const sql =  `
+  const sql = `
     DELETE FROM 
       products 
     WHERE 
