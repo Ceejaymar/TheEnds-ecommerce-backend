@@ -34,7 +34,7 @@ storeRouter.put('/:id', (req, res, next) => {
   const { name, address, city, state, zipcode } = req.body;
 
   StoreService.update(id, name, address, city, state, zipcode)
-    .then(data => {
+    .then(() => {
       res.json("Success: Store updated");
     })
     .catch(err => {

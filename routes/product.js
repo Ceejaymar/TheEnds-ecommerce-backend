@@ -35,7 +35,7 @@ productRouter.put('/:id', (req, res, next) => {
   const updatedAt = Date.now();
 
   ProductService.update(id, name, price, category, description, url, stock, updatedAt)
-    .then(data => {
+    .then(() => {
       res.json("Success: Product updated");
     })
     .catch(err => {
@@ -48,7 +48,7 @@ productRouter.delete('/:id', (req, res, next) => {
   const { id } = req.params;
 
   ProductService.delete(id)
-    .then(data => {
+    .then(() => {
       res.json("Success: Product deleted");
     })
     .catch(err => {
