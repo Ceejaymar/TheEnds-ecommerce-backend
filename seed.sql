@@ -14,8 +14,8 @@ CREATE TABLE users (
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
   "seller" BOOLEAN NOT NULL,
-  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()
+  "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedat" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE stores (
@@ -26,14 +26,13 @@ CREATE TABLE stores (
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
-  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (user_id) 
       REFERENCES users(id)
       ON DELETE CASCADE
 );
 
--- changed capital to lowercase
 CREATE TABlE products (
   "id" SERIAL PRIMARY KEY,
   "store_id" INT NOT NULL,
@@ -55,8 +54,8 @@ CREATE TABLE orders (
   "customer" INT NOT NULL,
   "total" MONEY NOT NULL,
   "status" VARCHAR NOT NULL,
-  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (customer) 
       REFERENCES users(id)
       ON DELETE CASCADE
@@ -69,8 +68,8 @@ CREATE TABLE orderline (
   "store_id" INT NOT NULL,
   "size" VARCHAR,
   "quantity" INT NOT NULL,
-  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (order_id) 
       REFERENCES orders(id)
       ON DELETE CASCADE,
