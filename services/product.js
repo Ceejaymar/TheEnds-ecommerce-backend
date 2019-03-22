@@ -24,7 +24,8 @@ ProductService.create = (store_id, name, price, category, description, url, stoc
 
 ProductService.update = (id, name, price, category, description, url, stock) => {
   const sql = `
-    UPDATE products
+    UPDATE 
+      products
     SET
       name = $[name], 
       price = $[price], 
@@ -41,8 +42,10 @@ ProductService.update = (id, name, price, category, description, url, stock) => 
 
 ProductService.delete = (id) => {
   const sql =  `
-    DELETE FROM products 
-    WHERE id = $[id]
+    DELETE FROM 
+      products 
+    WHERE 
+      id = $[id]
   `;
   return db.none(sql, { id });
 };

@@ -31,7 +31,8 @@ StoreService.getStoreOrders = (id) => {
 
 StoreService.update = (id, name, address, city, state, zipcode) => {
   const sql = `
-    UPDATE stores
+    UPDATE 
+      stores
     SET
       name = $[name], 
       address = $[address], 

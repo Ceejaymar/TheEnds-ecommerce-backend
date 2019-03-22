@@ -15,7 +15,8 @@ UserService.create = (fname, lname, username, email, password, address, city, st
 UserService.read = (id) => {
   const sql = `
     SELECT *
-    FROM users
+    FROM 
+      users
     WHERE
       users.id = $[id]
   `;
@@ -24,7 +25,8 @@ UserService.read = (id) => {
 
 UserService.update = (id, fname, lname, username, email, password, address, city, state, zipcode, seller) => {
   const sql = `
-    UPDATE users
+    UPDATE 
+      users
     SET
       fname = $[fname], 
       lname = $[lname], 
@@ -45,7 +47,10 @@ UserService.update = (id, fname, lname, username, email, password, address, city
 
 UserService.delete = (id) => {
   const sql = `
-    DELETE FROM users WHERE id = $[id]
+    DELETE FROM 
+      users 
+    WHERE 
+      id = $[id]
   `;  
   return db.none(sql, { id });
 }
