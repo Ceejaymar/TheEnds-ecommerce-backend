@@ -11,12 +11,23 @@ ProductService.read = (id) => {
   return db.one(sql, { id });
 };
 
+ProductService.create = (store_id, name, price, category, description, url, stock) => {
+  const sql = `
+    INSERT INTO 
+      products (store_id, name, price, category, description, url, stock)
+    VALUES
+      ($[store_id], $[name], $[price], $[category], $[description], $[url], $[stock])  
+    RETURNING id
+  `;
+  return db.one(sql, { store_id, name, price, category, description, url, stock });
+};
+
 ProductService.update = (name, price, category, description, url, stock) => {
   const sql = `
   
   `;
   return db.none(sql, { name, price, category, description, url, stock });
-}
+};
 
 // Needs to cascade
 ProductService.delete = (id) => {
@@ -25,6 +36,6 @@ ProductService.delete = (id) => {
     WHERE id = $[id]
   `;
   return db.none(sql, { id });
-}
+};
 
 module.exports = ProductService;
