@@ -11,6 +11,13 @@ ProductService.read = (id) => {
   return db.one(sql, { id });
 };
 
+ProductService.update = (name, price, category, description, url, stock) => {
+  const sql = `
+  
+  `;
+  return db.none(sql, { name, price, category, description, url, stock });
+}
+
 // Needs to cascade
 ProductService.delete = (id) => {
   const sql =  `
