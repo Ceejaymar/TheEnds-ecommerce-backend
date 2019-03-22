@@ -32,4 +32,19 @@ StoreService.getStoreOrders = (id) => {
   return db.any(sql, { id });
 }
 
+StoreService.update = (id, name, address, city, state, zipcode) => {
+  const sql = `
+    UPDATE stores
+    SET
+      name = $[name], 
+      address = $[address], 
+      city = $[city], 
+      state = $[state], 
+      zipcode = $[zipcode]
+    WHERE
+      stores.id = $[id]
+  `;
+  return db.none(sql, { id, name, address, city, state, zipcode });
+};
+
 module.exports = StoreService;
