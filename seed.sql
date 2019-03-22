@@ -29,8 +29,8 @@ CREATE TABLE stores (
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (user_id) 
-    REFERENCES users(id)
-    ON DELETE CASCADE
+      REFERENCES users(id)
+      ON DELETE CASCADE
 );
 
 CREATE TABlE products (
@@ -45,8 +45,8 @@ CREATE TABlE products (
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (store_id) 
-    REFERENCES stores(id)
-    ON DELETE CASCADE
+      REFERENCES stores(id)
+      ON DELETE CASCADE
 );
 
 CREATE TABLE orders (
@@ -57,8 +57,8 @@ CREATE TABLE orders (
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (customer) 
-    REFERENCES users(id)
-    ON DELETE CASCADE
+      REFERENCES users(id)
+      ON DELETE CASCADE
 );
 
 CREATE TABLE orderline (
