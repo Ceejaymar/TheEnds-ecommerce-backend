@@ -28,4 +28,18 @@ storeRouter.get('/:id/orders', (req, res, next) => {
     });
 });
 
+// Update store info
+storeRouter.put('/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { name, address, city, state, zipcode } = req.body;
+
+  StoreService.update(id, name, address, city, state, zipcode)
+    .then(data => {
+      res.json("Success: Store updated");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 module.exports = storeRouter;
