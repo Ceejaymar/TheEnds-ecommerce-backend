@@ -33,6 +33,7 @@ CREATE TABLE stores (
       ON DELETE CASCADE
 );
 
+-- changed capital to lowercase
 CREATE TABlE products (
   "id" SERIAL PRIMARY KEY,
   "store_id" INT NOT NULL,
@@ -42,8 +43,8 @@ CREATE TABlE products (
   "description" VARCHAR, 
   "url" VARCHAR NOT NULL,
   "stock" JSON NOT NULL,
-  "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
-  "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
+  "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (store_id) 
       REFERENCES stores(id)
       ON DELETE CASCADE
