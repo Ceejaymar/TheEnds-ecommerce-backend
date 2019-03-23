@@ -96,12 +96,12 @@ INSERT INTO stores (user_id, name, address, city, state, zipcode) VALUES
 (5, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306');
 
 INSERT INTO products (store_id, name, price, category, description, url, stock) VALUES
-(1, 'grey', 25.00, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/260/13779375-1370-40c1-abb4-93b5caa1b7052x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(1, 'orange', 25.00, 'tops', '25', 'https://photo-cdn.icons8.com/assets/previews/866/1ed641c6-49f3-47f9-a621-a87f0c4580de2x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(1, 'yellow', 25.00, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/280/c68fd564-49e6-4eb9-9037-a084a7afa0192x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(1, 'white stripes', 9.99, 'tops', '5', 'https://photo-cdn.icons8.com/assets/previews/854/badfb2f1-30d8-4b82-ae7d-a9efd94dc1c62x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(1, 'firebrick', 25.00, 'tops', '17', 'https://photo-cdn.icons8.com/assets/previews/370/afc9e21c-ce4f-49a1-b511-edcd7dbc7edd2x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(1, 'knit tan', 9.99, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/374/d7befafb-1784-4861-abda-c74a673a00a02x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'grey', 25.00, 'tops', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/grey-1.jpg?alt=media&token=afd3c77d-288d-4b75-bf4c-59dd2e89c504', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'orange', 25.00, 'tops', '25', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/orange-1.jpg?alt=media&token=3d74c963-f8e4-413a-867d-601449d238fe', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'yellow', 25.00, 'tops', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/yellow-1.jpg?alt=media&token=4606f0f7-e10c-4f98-888c-2df94ffd4660', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'white stripes', 9.99, 'tops', '5', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/stripe-1.jpg?alt=media&token=938c6ad8-5f05-4333-8f32-a30c63835574', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'firebrick', 25.00, 'tops', '17', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/burg-1.jpg?alt=media&token=93ee0cf6-a372-4c8e-82c0-2064b647a691', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(1, 'knit tan', 9.99, 'tops', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/tan-sweater-1.jpg?alt=media&token=8b427fe8-ef58-45ed-af7a-a95df9f9c5a0', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
 (2, 'Long T-shirt tan', 25.00, 'tops', '5', 'https://photo-cdn.icons8.com/assets/previews/255/79e00fcd-d720-4135-9742-96f62c4601e92x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
 (2, 'pastel pink', 9.99, 'tops', '25', 'https://photo-cdn.icons8.com/assets/previews/257/d22f24ca-54b6-4623-a6a4-b25f606039c32x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
 (2, 'short pink', 25.00, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/413/4225cc56-2bbf-4622-af7a-eedccd3aff3f2x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
