@@ -108,11 +108,11 @@ INSERT INTO products (store_id, name, price, category, description, url, stock) 
 (2, 'short grey', 9.99, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/265/602c9ae2-914d-48c2-ad0f-07eaaaca302a2x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
 (2, 'short white', 9.99, 'tops', '20', 'https://photo-cdn.icons8.com/assets/previews/432/22316bc2-8fc0-4529-8653-974c02efb1cf2x.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
 (2, 'short green', 9.99, 'tops', '20', 'https://photos.icons8.com/basic-khaki-t-shirt-5ba920738b6588000152f6c3', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1533339140/D06154-8973-9401-F02/G-Star-RAW%25C2%25AE-Motac-Deconstructed-3D-Slim-Jeans-Medium-blue.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1537366760/51001-8970-082-F02/G-Star-RAW%25C2%25AE-3301-Slim-Jeans-Black.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1543328886/D05655-7209-89-F02/G-Star-RAW%25C2%25AE-5620-G-Star-Elwood-3D-Straight-Jeans-Dark-blue.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1549362581/51001-8968-8436-F02/G-Star-RAW%25C2%25AE-3301-Slim-Jeans-Medium-blue.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
-(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://img1.g-star.com/product/c_fill,f_auto,h_3135,q_80/v1524342640/51010-7101-2967-F02/G-Star-RAW%25C2%25AE-Revend-Skinny-Jeans-Black.jpg', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }');
+(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/Star-1.png?alt=media&token=f1032cfc-28ca-4e69-a181-6dac42dbbb70', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/Star-2.png?alt=media&token=0ca8b1b2-6fc0-45bc-8b6d-8f14172b4d11', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/Star-3.png?alt=media&token=11bdfccc-6c0c-42b1-bdd3-fdd70c7ab372', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/Star-4.png?alt=media&token=63ea7b85-3f65-4df9-a7c0-b2b3ec26a944', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
+(3, 'pants Blue', 9.99, 'bottoms', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/star-5.png?alt=media&token=584de7a9-e74f-49a0-ba82-4edc45113348', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }');
 
 INSERT INTO orders (customer, total, status) VALUES
 (1, 34.99, 'shipped'),
