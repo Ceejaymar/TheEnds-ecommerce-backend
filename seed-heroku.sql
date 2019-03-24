@@ -4,8 +4,6 @@ DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS orderline;
 
-\c theends;
-
 CREATE TABLE users (
   "id" SERIAL PRIMARY KEY,
   "fname" VARCHAR NOT NULL,
