@@ -1,4 +1,4 @@
-const { db } = require('./dbconnect');
+const { db } = require('./dbConnect');
 const OrderService = {};
 
 OrderService.read = (id) => {
