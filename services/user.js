@@ -1,15 +1,15 @@
 const { db } = require('./dbConnect');
 const UserService = {};
 
-UserService.create = (fname, lname, username, email, password, address, city, state, zipcode, seller) => {
+UserService.create = (fname, lname, email, token, address, city, state, zipcode, seller) => {
   const sql = `
     INSERT INTO
-      users (fname, lname, username, email, password, address, city, state, zipcode, seller)
+      users (fname, lname, email, token, address, city, state, zipcode, seller)
     VALUES
-      ($[fname], $[lname], $[username], $[email], $[password], $[address], $[city], $[state], $[zipcode], $[seller])  
+      ($[fname], $[lname], $[email], $[token], $[address], $[city], $[state], $[zipcode], $[seller])  
     RETURNING id;  
   `;
-  return db.one(sql, { fname, lname, username, email, password, address, city, state, zipcode, seller });
+  return db.one(sql, { fname, lname, email, token, address, city, state, zipcode, seller });
 };
 
 UserService.read = (id) => {
