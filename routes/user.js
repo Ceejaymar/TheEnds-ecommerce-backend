@@ -1,13 +1,13 @@
 const express = require('express');
 const userRouter = express.Router();
 const UserService = require('../services/user');
-const { checkToken  } = require('./utilities');
+const { checkToken  } = require('../utilities');
 
 // Create new user
 userRouter.post('/', (req, res, next) => {
-  const { fname, lname, email, token, address, city, state, zipcode, seller } = req.body;
+  const { fname, lname, email, uid, address, city, state, zipcode, seller } = req.body;
 
-  UserService.create(fname, lname, email, token, address, city, state, zipcode, seller)
+  UserService.create(fname, lname, email, uid, address, city, state, zipcode, seller)
     .then(data => {
       res.json(`Success: New user created with ID: ${data.id}`);
     })
