@@ -8,7 +8,7 @@ CREATE TABLE users (
   "fname" VARCHAR NOT NULL,
   "lname" VARCHAR NOT NULL,
   "email" VARCHAR UNIQUE NOT NULL,
-  "token" VARCHAR NOT NULL,
+  "uid" VARCHAR NOT NULL,
   "address" VARCHAR NOT NULL,
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE orderline (
       ON DELETE CASCADE
 );
 
-INSERT INTO users (fname, lname, email, token, address, city, state, zipcode, seller) VALUES
+INSERT INTO users (fname, lname, email, uid, address, city, state, zipcode, seller) VALUES
 ('Carlos', 'Martinez', 'cm@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', true),
 ('John', 'Chevy', 'jc@gmail.com', 'littt', '212 Throop ave', 'Brooklyn', 'New York', '11206', false),
 ('Rigo', 'Berto', 'rb@gmail.com', 'littt', '1 Menahan ave', 'Brooklyn', 'New York', '11345', true),
