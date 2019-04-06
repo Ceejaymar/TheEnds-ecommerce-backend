@@ -1,14 +1,17 @@
-const checkToken = (req, res, next) => {
-const { token } = req.body;
+const firebase  =  require('./firebase');
 
-admin.auth().verifyIdToken(token)
-  .then(function(decodedToken) {
-    const uid = decodedToken.uid;
-    next();
-  }).catch(function(error) {
-    res.json('ERROR!!!!')
-  });
+const checkToken = (req, res, next) => {
+  const { token } = req.body;
+
+  firebase.auth().verifyIdToken(token)
+    .then(function(decodedToken) {
+      const uid = decodedToken.uid;
+      next();
+    }).catch(function(error) {
+      res.json('ERROR!!!!')
+    });
 }
+
 
 module.exports = {
   checkToken
