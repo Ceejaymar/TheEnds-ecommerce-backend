@@ -46,4 +46,12 @@ StoreService.update = (id, name, address, city, state, zipcode) => {
   return db.none(sql, { id, name, address, city, state, zipcode });
 };
 
+StoreService.getStoreList = () => {
+  const sql = `
+    SELECT *
+    FROM stores
+  `
+  return db.any(sql);
+};
+
 module.exports = StoreService;
