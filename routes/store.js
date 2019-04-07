@@ -2,6 +2,19 @@ const express = require('express');
 const storeRouter = express.Router();
 const StoreService = require('../services/store');
 
+// Get store info
+storeRouter.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  
+  StoreService.getStoreInfo(id)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Update store info
 storeRouter.put('/:id', (req, res, next) => {
   const { id } = req.params;
@@ -53,4 +66,4 @@ storeRouter.get('/all', (req, res, next) => {
     });
 });
 
-  module.exports = storeRouter;
+module.exports = storeRouter;

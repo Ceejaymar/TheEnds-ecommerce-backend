@@ -1,9 +1,23 @@
 const { db } = require('./dbConnect.js');
 const StoreService = {};
 
+StoreService.getStoreInfo = (id) => {
+  const sql = `
+    SELECT
+      stores.*
+    FROM 
+      stores
+    WHERE 
+      stores.id = $[id]
+  `;
+  return db.one(sql, { id });
+};
+
 StoreService.getStoreProducts = (id) => {
   const sql = `
     SELECT 
+      stores.*,
+      stores.name AS store_name,
       products.*
     FROM stores
     JOIN products
