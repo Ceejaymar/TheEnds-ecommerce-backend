@@ -29,6 +29,18 @@ userRouter.get('/:id', (req, res, next) => {
     });
 });
 
+userRouter.get('/:id/protected', checkToken, (req, res, next) => {
+  const { id } = req.params;
+
+  UserService.read(id)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Update user
 userRouter.put('/:id', checkToken, (req, res, next) => {
   const { id } = req.params;
