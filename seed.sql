@@ -26,6 +26,7 @@ CREATE TABLE stores (
   "city" VARCHAR NOT NULL,
   "state" VARCHAR NOT NULL,
   "zipcode" VARCHAR NOT NULL,
+  "images" JSON NOT NULL,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (user_id) 
@@ -90,10 +91,10 @@ INSERT INTO users (fname, lname, email, uid, address, city, state, zipcode, sell
 ('Ash', 'Ketchum', '3@gmail.com', 'littt', '1 Menahan ave', 'Pallet Town', 'Kanto', '11345', false),
 ('Joe', 'Cruz', '4@gmail.com', 'littt', '1 Menahan ave', 'Queens', 'New York', '11345', true);
 
-INSERT INTO stores (user_id, name, address, city, state, zipcode) VALUES
-(1, 'SolidBlack', '212 Throop ave', 'Brooklyn', 'New York', '11206'),
-(3, 'byHOME', '10 Homey ave', 'New York', 'New York', '11001'),
-(5, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306');
+INSERT INTO stores (user_id, name, address, city, state, zipcode, images) VALUES
+(1, 'SolidBlack', '212 Throop ave', 'Brooklyn', 'New York', '11206', '{ "card": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FsolidBlack%2Ftobias-van-schneider-310434-unsplash.jpg?alt=media&token=9fd664cd-bc48-4155-b747-20a630ff5f7c", "header": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FsolidBlack%2Fivane-goliadze-619016-unsplash.jpg?alt=media&token=9788bca5-66ea-41f5-97a0-5229037ac13e"}'),
+(3, 'byHOME', '10 Homey ave', 'New York', 'New York', '11001', '{ "card": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FbyHOME%2Fnine-kopfer-1436646-unsplash.jpg?alt=media&token=6a3d2194-5afa-4190-a410-74bed968423a", "header": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FbyHOME%2Falexandra-gorn-485551-unsplash.jpg?alt=media&token=df995bd2-067c-4550-95a2-8714432fcd0f"}'),
+(5, 'EssentialT', '200 Wayback st', 'Bronx', 'New York', '11306', '{ "card": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FessentialT%2Fsaffu-458935-unsplash.jpg?alt=media&token=66bd2c4c-aa5b-4f32-b6d2-4ed34602e1ef", "header": "https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/storeImages%2FessentialT%2Fkeagan-henman-625488-unsplash.jpg?alt=media&token=c0b21725-060d-4ccc-85cb-5beaec209bfe"}');
 
 INSERT INTO products (store_id, name, price, category, description, url, stock) VALUES
 (1, 'grey', 25.00, 'tops', '20', 'https://firebasestorage.googleapis.com/v0/b/theends.appspot.com/o/grey-1.jpg?alt=media&token=afd3c77d-288d-4b75-bf4c-59dd2e89c504', '{ "small": "5", "medium": "4", "large": "5", "xlarge": "5" }'),
