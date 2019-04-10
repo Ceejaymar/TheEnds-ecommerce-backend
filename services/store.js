@@ -1,6 +1,14 @@
 const { db } = require('./dbConnect.js');
 const StoreService = {};
 
+StoreService.getStoreList = () => {
+  const sql = `
+    SELECT *
+    FROM stores
+  `
+  return db.any(sql);
+};
+
 StoreService.getStoreInfo = (id) => {
   const sql = `
     SELECT
@@ -16,9 +24,11 @@ StoreService.getStoreInfo = (id) => {
 StoreService.getStoreProducts = (id) => {
   const sql = `
     SELECT 
-      stores.*,
       stores.name AS store_name,
-      products.*
+      products.id,
+      products.name,
+      products.price,
+      products.url
     FROM stores
     JOIN products
       ON stores.id = products.store_id
@@ -58,14 +68,6 @@ StoreService.update = (id, name, address, city, state, zipcode) => {
       stores.id = $[id]
   `;
   return db.none(sql, { id, name, address, city, state, zipcode });
-};
-
-StoreService.getStoreList = () => {
-  const sql = `
-    SELECT *
-    FROM stores
-  `
-  return db.any(sql);
 };
 
 module.exports = StoreService;

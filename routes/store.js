@@ -2,6 +2,18 @@ const express = require('express');
 const storeRouter = express.Router();
 const StoreService = require('../services/store');
 
+
+// Get list of all stores
+storeRouter.get('/all', (req, res, next) => {
+  StoreService.getStoreList()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Get store info
 storeRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
@@ -47,17 +59,6 @@ storeRouter.get('/:id/orders', (req, res, next) => {
   const { id } = req.params;
 
   StoreService.getStoreOrders(id)
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
-// Get list of all stores
-storeRouter.get('/all', (req, res, next) => {
-  StoreService.getStoreList()
     .then(data => {
       res.json(data);
     })
