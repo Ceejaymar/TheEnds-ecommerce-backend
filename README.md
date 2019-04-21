@@ -8,7 +8,7 @@ If you would like to see The Ends frontend, click :point_right: [The Ends ecomme
 
 - ### User
   - ~~`GET '/'` : Get all users.~~
-  - `GET '/:id'` : Get information for a specific. user <!-- Prob needs to be move to orders routes. -->
+  - `GET '/:id'` : Get information for a specific user. <!-- Prob needs to be move to orders routes. -->
   - `GET '/:id/orders'` : Get all orders made by a user.
   - `POST '/'` : Create a new user.
   - `PUT '/:id'` :  Update an existing user.
