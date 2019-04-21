@@ -4,7 +4,7 @@ const StoreService = require('../services/store');
 
 
 // Get list of all stores
-storeRouter.get('/all', (req, res, next) => {
+storeRouter.get('/', (req, res, next) => {
   StoreService.getStoreList()
     .then(data => {
       res.json(data);
