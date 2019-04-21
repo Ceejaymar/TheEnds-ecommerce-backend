@@ -8,33 +8,33 @@ If you would like to see The Ends frontend, click :point_right: [The Ends ecomme
 
 - ### User
   - `GET '/'` :
-  - `POST '/:id' : 
-  - `PUT '/:id'`: 
-  - `DELETE '/:id'`: 
+  - `POST '/:id'` : 
+  - `PUT '/:id'` : 
+  - `DELETE '/:id'` : 
 
 - ### Store
   - `GET '/'` : 
-  - `POST '/:id' : 
-  - `PUT '/:id'`: 
-  - `DELETE '/:id'`: 
+  - `POST '/:id'` : 
+  - `PUT '/:id'` : 
+  - `DELETE '/:id'` : 
 
 - ### Product
   - `GET '/'` : 
-  - `POST '/:id' : 
-  - `PUT '/:id'`: 
-  - `DELETE '/:id'`: 
+  - `POST '/:id'` : 
+  - `PUT '/:id'` : 
+  - `DELETE '/:id'` : 
 
 - ### Order
   - `GET '/'` : 
-  - `POST '/:id' : 
-  - `PUT '/:id'`: 
-  - `DELETE '/:id'`: 
+  - `POST '/:id'` : 
+  - `PUT '/:id'` : 
+  - `DELETE '/:id'` : 
 
 - ### Orderline
   - `GET '/'` : 
-  - `POST '/:id' : 
-  - `PUT '/:id'`: 
-  - `DELETE '/:id'`: 
+  - `POST '/:id'` : 
+  - `PUT '/:id'` : 
+  - `DELETE '/:id'` : 
 
 ## Demo
 
