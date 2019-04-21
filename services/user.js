@@ -1,6 +1,18 @@
 const { db } = require('./dbConnect');
 const UserService = {};
 
+UserService.readAll = () => {
+  const sql = `
+    SELECT 
+      users.*, 
+      stores.name AS store_name
+    FROM users
+    JOIN stores
+      ON stores.user_id = users.id
+  `;
+  return db.any(sql);
+};
+
 UserService.create = (fname, lname, email, uid, address, city, state, zipcode, seller) => {
   const sql = `
     INSERT INTO
