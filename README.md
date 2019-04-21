@@ -7,16 +7,21 @@ If you would like to see The Ends frontend, click :point_right: [The Ends ecomme
 ## Routes
 
 - ### User
-  - `GET '/'` :
-  - `POST '/:id'` : 
-  - `PUT '/:id'` : 
-  - `DELETE '/:id'` : 
+  - ~~`GET '/'` : Get all users~~
+  - `GET '/:id'` : Get information for a specific user <!-- Prob needs to be move to orders routes -->
+  - `GET '/:id/orders'` : Get all orders made by a user
+  - `POST '/:id'` : Create a new user
+  - `PUT '/:id'` :  Update an existing user
+  - `DELETE '/:id'` : Delete a user
 
 - ### Store
-  - `GET '/'` : 
-  - `POST '/:id'` : 
-  - `PUT '/:id'` : 
-  - `DELETE '/:id'` : 
+  - `GET '/'` : Get information for all stores
+  - `GET '/:id'` : Get information for a specific store
+  - `GET '/:id/products'` : Get all products for a store
+  - `GET '/:id/orders'` : Get all orders for a store
+  - ~~`POST '/:id'` : Create a store~~
+  - `PUT '/:id'` : Update an existing store's information
+  - ~~`DELETE '/:id'` : Delete a store~~
 
 - ### Product
   - `GET '/'` : 
@@ -42,4 +47,4 @@ If you would like to see The Ends frontend, click :point_right: [The Ends ecomme
 
 ## Tools
 
-## Thank you!
+__Thank you!__
