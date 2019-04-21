@@ -3,6 +3,17 @@ const userRouter = express.Router();
 const UserService = require('../services/user');
 const { checkToken  } = require('../utilities');
 
+// Get specific user info
+userRouter.get('/', (req, res, next) => {
+  UserService.readAll()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Create new user
 userRouter.post('/', (req, res, next) => {
   const { fname, lname, email, uid, address, city, state, zipcode, seller } = req.body;
@@ -16,7 +27,7 @@ userRouter.post('/', (req, res, next) => {
     });
 });
 
-// Get user info
+// Get specific user info
 userRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
 
