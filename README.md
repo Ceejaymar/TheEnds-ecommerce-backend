@@ -8,7 +8,7 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
 
 - ### User
   - `GET '/'` : Get all users.
-  - `GET '/:id'` : Get information for a specific user. <!-- Prob needs to be move to orders routes. -->
+  - `GET '/:id'` : Get information for a specific user <!-- Prob needs to be move to orders routes. -->
   - `GET '/:id/orders'` : Get all orders made by a user.
   - `POST '/'` : Create a new user.
   - `PUT '/:id'` :  Update an existing user.
@@ -20,21 +20,21 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `GET '/:id/products'` : Get all products for a store.
   - `GET '/:id/orders'` : Get all orders for a store.
   - `POST '/'` : Create a store.
-  - `PUT '/:id'` : Update an existing store's information.
+  - `PUT '/:id'` : Update an existing store.
   - `DELETE '/:id'` : Delete a store.
 
 - ### Product
   - `GET '/'` : Get all products.
   - `GET '/:id'` : Get information for a specific product.
   - `POST '/'` : Get information for specific product. 
-  - `PUT '/:id'` : Update and existing product.
+  - `PUT '/:id'` : Update an existing product.
   - `DELETE '/:id'` : Delete a product.
 
 - ### Order
   - `GET '/'` : Get all orders.
   - `GET '/:id'` : Get information for a specific order.
   - `POST '/'` : Create new order.
-  - `PUT '/:id'` : Update existing order order.
+  - `PUT '/:id'` : Update an existing order.
   - `DELETE '/:id'` : Delete an order.
 
 <!-- - ### Orderline
