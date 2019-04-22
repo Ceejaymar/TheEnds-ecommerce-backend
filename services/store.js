@@ -77,7 +77,7 @@ StoreService.delete = (id) => {
   WHERE
     store.id = $[id]
   `;
-  return db.none(sql, { sql });
+  return db.none(sql, { id });
 }
 
 module.exports = StoreService;
