@@ -53,7 +53,18 @@ StoreService.getStoreOrders = (id) => {
   return db.any(sql, { id });
 };
 
-StoreService.update = (id, name, address, city, state, zipcode) => {
+StoreService.create = (user_id, name, address, city, state, zipcode, images) => {
+  const sql = `
+    INSERT INTO
+      stores (name, user_id, address, city, state, zipcode, images)
+    VALUES
+      ($[name], $[user_id], $[address], $[city], $[state], $[zipcode], $[images])
+    RETURNING id;
+  `;
+  return db.one(sql, { name, user_id, address, city, state, zipcode, images });
+};
+
+StoreService.update = (id, name, address, city, state, zipcode, images) => {
   const sql = `
     UPDATE 
       stores
@@ -63,11 +74,12 @@ StoreService.update = (id, name, address, city, state, zipcode) => {
       city = $[city], 
       state = $[state], 
       zipcode = $[zipcode],
+      images = $[images],
       updatedat = NOW()
     WHERE
       stores.id = $[id]
   `;
-  return db.none(sql, { id, name, address, city, state, zipcode });
+  return db.none(sql, { id, name, address, city, state, zipcode, images });
 };
 
 StoreService.delete = (id) => {
