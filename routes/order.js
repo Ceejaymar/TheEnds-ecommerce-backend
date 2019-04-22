@@ -2,6 +2,17 @@ const express = require('express');
 const orderRouter = express.Router();
 const OrderServices = require('../services/order');
 
+// Get all orders info
+orderRouter.get('/', (req, res, next) => {
+  OrderServices.readAllOrders()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // Get order info
 orderRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
@@ -42,5 +53,17 @@ orderRouter.put('/:id', (req, res, next) => {
     });
 });
 
+// Delete an order
+orderRouter.delete('/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  OrderServices.delete(id)
+    .then(() => {
+      res.json("Success: Order has been deleted");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = orderRouter;

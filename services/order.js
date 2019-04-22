@@ -1,12 +1,29 @@
 const { db } = require('./dbConnect');
 const OrderService = {};
 
+OrderService.readAllOrders = () => {
+  const sql = `
+    SELECT *
+    FROM orders
+  `;
+  return db.any(sql);
+};
+
+
 OrderService.read = (id) => {
   const sql = `
     SELECT  
-      orders.*,
-      orderline.*,
-      products.price
+      orders.id AS orders_id,
+      orders.customer,
+      orders.total,
+      orders.status,
+      orders.createdat,
+      orderline.product_id,
+      orderline.size,
+      orderline.quantity,
+      products.name,
+      products.url,
+      products.price AS product_price
     FROM orders
     JOIN orderline
       ON orders.id = orderline.order_id
@@ -40,6 +57,16 @@ OrderService.update = (id, status) => {
       orders.id = $[id]
   `;
   return db.none(sql, { id, status })
+};
+
+OrderService.delete = (id) => {
+  const sql = `
+  DELETE FROM 
+    orders
+  WHERE 
+    orders.id = $[id]
+  `;
+  return db.none(sql, { id });
 };
 
 module.exports = OrderService;
