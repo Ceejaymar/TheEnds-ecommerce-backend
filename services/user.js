@@ -1,14 +1,11 @@
 const { db } = require('./dbConnect');
 const UserService = {};
 
+// Todo: Should return store name is owns one.
 UserService.readAll = () => {
   const sql = `
-    SELECT 
-      users.*, 
-      stores.name AS store_name
+    SELECT *
     FROM users
-    JOIN stores
-      ON stores.user_id = users.id
   `;
   return db.any(sql);
 };
