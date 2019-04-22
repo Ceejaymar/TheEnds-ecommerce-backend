@@ -59,7 +59,7 @@ Seed database: `npm run seed`
 
 Start in development mode: `npm run start:local`
 
-You can open in your browser to get the welcome message and make sure app is running. [http://localhost:3001](http://localhost:3001) 
+You can open http://localhost:3001 in your browser to get the welcome message. 
 
 Open [Postman](https://www.getpostman.com/) or another API development environment.
 
