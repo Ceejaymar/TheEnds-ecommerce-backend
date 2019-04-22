@@ -24,18 +24,18 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `DELETE '/:id'` : Delete a store.
 
 - ### Product
-  - ~~`GET '/'` : Get all products.~~
+  - `GET '/'` : Get all products.
   - `GET '/:id'` : Get information for a specific product.
   - `POST '/'` : Get information for specific product. 
   - `PUT '/:id'` : Update and existing product.
   - `DELETE '/:id'` : Delete a product.
 
 - ### Order
-  - ~~`GET '/'` : Get all orders.~~
+  - `GET '/'` : Get all orders.
   - `GET '/:id'` : Get information for a specific order.
   - `POST '/'` : Create new order.
   - `PUT '/:id'` : Update existing order order.
-  - ~~`DELETE '/:id'` : Delete an order.~~
+  - `DELETE '/:id'` : Delete an order.
 
 <!-- - ### Orderline
   - `GET '/'` : 
