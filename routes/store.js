@@ -67,4 +67,16 @@ storeRouter.get('/:id/orders', (req, res, next) => {
     });
 });
 
+storeRouter.delete('/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  StoreService.delete(id)
+    .then(() => {
+      res.json(`Success: Deleted store with ID: ${id}`)
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 module.exports = storeRouter;

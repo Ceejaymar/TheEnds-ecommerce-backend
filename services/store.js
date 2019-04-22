@@ -70,4 +70,14 @@ StoreService.update = (id, name, address, city, state, zipcode) => {
   return db.none(sql, { id, name, address, city, state, zipcode });
 };
 
+StoreService.delete = (id) => {
+  const sql = `
+  DELETE FROM
+    stores
+  WHERE
+    store.id = $[id]
+  `;
+  return db.none(sql, { sql });
+}
+
 module.exports = StoreService;
