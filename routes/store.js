@@ -2,7 +2,6 @@ const express = require('express');
 const storeRouter = express.Router();
 const StoreService = require('../services/store');
 
-
 // Get list of all stores
 storeRouter.get('/', (req, res, next) => {
   StoreService.getStoreList()
@@ -27,12 +26,25 @@ storeRouter.get('/:id', (req, res, next) => {
     });
 });
 
+// Create a store
+storeRouter.post('/create', (req, res, next) => {
+  const { user_id, name, address, city, state, zipcode, images } = req.body;
+  
+  StoreService.create(user_id, name, address, city, state, zipcode, images)
+    .then(data => {
+      res.json(`Success: Store created with ID: ${data.id}`);
+    })
+    .catch(err => {
+      next(err);
+    });
+  });
+
 // Update store info
 storeRouter.put('/:id', (req, res, next) => {
   const { id } = req.params;
-  const { name, address, city, state, zipcode } = req.body;
+  const { name, address, city, state, zipcode, images } = req.body;
 
-  StoreService.update(id, name, address, city, state, zipcode)
+  StoreService.update(id, name, address, city, state, zipcode, images)
     .then(() => {
       res.json("Success: Store updated");
     })
