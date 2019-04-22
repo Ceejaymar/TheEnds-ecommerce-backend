@@ -1,6 +1,14 @@
 const { db } = require('./dbConnect');
 const ProductService = {};
 
+ProductService.readAllProducts = () => {
+  const sql = `
+    SELECT * 
+    FROM products
+  `;
+  return db.any(sql);
+};
+
 ProductService.read = (id) => {
   const sql = `
     SELECT * 
