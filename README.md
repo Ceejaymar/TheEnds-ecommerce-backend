@@ -19,9 +19,9 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `GET '/:id'` : Get information for a specific store.
   - `GET '/:id/products'` : Get all products for a store.
   - `GET '/:id/orders'` : Get all orders for a store.
-  - ~~`POST '/'` : Create a store.~~
+  - `POST '/'` : Create a store.
   - `PUT '/:id'` : Update an existing store's information.
-  - ~~`DELETE '/:id'` : Delete a store.~~
+  - `DELETE '/:id'` : Delete a store.
 
 - ### Product
   - ~~`GET '/'` : Get all products.~~
