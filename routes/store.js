@@ -27,7 +27,7 @@ storeRouter.get('/:id', (req, res, next) => {
 });
 
 // Create a store
-storeRouter.post('/create', (req, res, next) => {
+storeRouter.post('/', (req, res, next) => {
   const { user_id, name, address, city, state, zipcode, images } = req.body;
   
   StoreService.create(user_id, name, address, city, state, zipcode, images)
