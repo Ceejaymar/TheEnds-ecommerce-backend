@@ -75,7 +75,7 @@ StoreService.delete = (id) => {
   DELETE FROM
     stores
   WHERE
-    store.id = $[id]
+    stores.id = $[id]
   `;
   return db.none(sql, { id });
 }
