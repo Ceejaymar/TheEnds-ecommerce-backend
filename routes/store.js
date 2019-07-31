@@ -16,7 +16,7 @@ storeRouter.get('/', (req, res, next) => {
 // Get store info
 storeRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  
+
   StoreService.getStoreInfo(id)
     .then(data => {
       res.json(data);
@@ -29,7 +29,7 @@ storeRouter.get('/:id', (req, res, next) => {
 // Create a store
 storeRouter.post('/', (req, res, next) => {
   const { user_id, name, address, city, state, zipcode, images } = req.body;
-  
+
   StoreService.create(user_id, name, address, city, state, zipcode, images)
     .then(data => {
       res.json(`Success: Store created with ID: ${data.id}`);
