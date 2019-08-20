@@ -1,6 +1,6 @@
 # The Ends backend
 
-The Ends is is a fun project I am working on to bring a lot of what I know and some new things together. Still a work in progress. 
+The Ends is a fun project I am working on to bring a lot of what I know and some new things together. Still a work in progress.
 
 If you would like to see The Ends frontend, click :point_right: https://github.com/Ceejaymar/TheEnds-ecommerce-frontend
 
@@ -26,7 +26,7 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
 - ### Product
   - `GET '/'` : Get all products.
   - `GET '/:id'` : Get information for a specific product.
-  - `POST '/'` : Get information for specific product. 
+  - `POST '/'` : Create a new product.
   - `PUT '/:id'` : Update an existing product.
   - `DELETE '/:id'` : Delete a product.
 
@@ -38,9 +38,9 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `DELETE '/:id'` : Delete an order.
 
 <!-- - ### Orderline
-  - `GET '/'` : 
-  - `POST '/:id'` : 
-  - `PUT '/:id'` : 
+  - `GET '/'` :
+  - `POST '/:id'` :
+  - `PUT '/:id'` :
   - `DELETE '/:id'` :  -->
 
 ## Demo
@@ -49,7 +49,7 @@ Hosted demo: [The Ends - backend](http://the-ends.herokuapp.com)
 
 ## Setup project locally
 
-After you cloning the repository, navigate to the project in your terminal.
+After cloning the repository, navigate to the project in your terminal.
 
 Make sure you have [Postgres](https://postgresapp.com/) installed and running.
 
@@ -59,11 +59,11 @@ Seed database: `npm run seed`
 
 Start in development mode: `npm run start:local`
 
-You can open http://localhost:3001 in your browser to get the welcome message. 
+You can open http://localhost:3001 in your browser to get the welcome message.
 
 Open [Postman](https://www.getpostman.com/) or another API development environment.
 
-Use this Postman collection below to test routes. 
+Use this Postman collection below to test routes.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d58591b805d73f2288bb)
 
