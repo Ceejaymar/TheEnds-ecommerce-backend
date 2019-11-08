@@ -56,7 +56,7 @@ userRouter.get('/:id/protected', checkToken, (req, res, next) => {
 userRouter.put('/:id', checkToken, (req, res, next) => {
   const { id } = req.params;
   const { fname, lname, username, email, password, address, city, state, zipcode, seller } = req.body;
-  
+
   UserService.update(id, fname, lname, username, email, password, address, city, state, zipcode, seller)
     .then(() => {
       res.json('Success: Profile has been updated');

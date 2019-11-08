@@ -15,8 +15,8 @@ UserService.create = (fname, lname, email, uid, address, city, state, zipcode, s
     INSERT INTO
       users (fname, lname, email, uid, address, city, state, zipcode, seller)
     VALUES
-      ($[fname], $[lname], $[email], $[uid], $[address], $[city], $[state], $[zipcode], $[seller])  
-    RETURNING id;  
+      ($[fname], $[lname], $[email], $[uid], $[address], $[city], $[state], $[zipcode], $[seller])
+    RETURNING id;
   `;
   return db.one(sql, { fname, lname, email, uid, address, city, state, zipcode, seller });
 };
@@ -24,7 +24,7 @@ UserService.create = (fname, lname, email, uid, address, city, state, zipcode, s
 UserService.read = (id) => {
   const sql = `
     SELECT *
-    FROM 
+    FROM
       users
     WHERE
       users.id = $[id]
@@ -34,21 +34,21 @@ UserService.read = (id) => {
 
 UserService.update = (id, fname, lname, username, email, password, address, city, state, zipcode, seller) => {
   const sql = `
-    UPDATE 
+    UPDATE
       users
     SET
-      fname = $[fname], 
-      lname = $[lname], 
-      username = $[username], 
-      email = $[email], 
-      password = $[password], 
-      address = $[address], 
+      fname = $[fname],
+      lname = $[lname],
+      username = $[username],
+      email = $[email],
+      password = $[password],
+      address = $[address],
       city = $[city],
-      state = $[state], 
-      zipcode = $[zipcode], 
+      state = $[state],
+      zipcode = $[zipcode],
       seller = $[seller],
       updatedat = NOW()
-    WHERE 
+    WHERE
       users.id = $[id]
   `;
   return db.none(sql, { id, fname, lname, username, email, password, address, city, state, zipcode, seller });
@@ -56,11 +56,11 @@ UserService.update = (id, fname, lname, username, email, password, address, city
 
 UserService.delete = (id) => {
   const sql = `
-    DELETE FROM 
-      users 
-    WHERE 
+    DELETE FROM
+      users
+    WHERE
       id = $[id]
-  `;  
+  `;
   return db.none(sql, { id });
 };
 
@@ -72,7 +72,7 @@ UserService.getUserOrders = (id) => {
     JOIN users
       ON users.id = orders.customer
     WHERE
-      users.id = $[id] 
+      users.id = $[id]
   `;
   return db.any(sql, { id });
 };

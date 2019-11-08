@@ -13,9 +13,9 @@ StoreService.getStoreInfo = (id) => {
   const sql = `
     SELECT
       stores.*
-    FROM 
+    FROM
       stores
-    WHERE 
+    WHERE
       stores.id = $[id]
   `;
   return db.one(sql, { id });
@@ -23,7 +23,7 @@ StoreService.getStoreInfo = (id) => {
 
 StoreService.getStoreProducts = (id) => {
   const sql = `
-    SELECT 
+    SELECT
       stores.name AS store_name,
       products.id,
       products.name,
@@ -66,13 +66,13 @@ StoreService.create = (user_id, name, address, city, state, zipcode, images) => 
 
 StoreService.update = (id, name, address, city, state, zipcode, images) => {
   const sql = `
-    UPDATE 
+    UPDATE
       stores
     SET
-      name = $[name], 
-      address = $[address], 
-      city = $[city], 
-      state = $[state], 
+      name = $[name],
+      address = $[address],
+      city = $[city],
+      state = $[state],
       zipcode = $[zipcode],
       images = $[images],
       updatedat = NOW()

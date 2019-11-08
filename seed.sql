@@ -29,7 +29,7 @@ CREATE TABLE stores (
   "images" JSON,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (user_id) 
+    FOREIGN KEY (user_id)
       REFERENCES users(id)
       ON DELETE CASCADE
 );
@@ -40,12 +40,12 @@ CREATE TABlE products (
   "name" VARCHAR NOT NULL,
   "price" MONEY NOT NULL,
   "category" VARCHAR NOT NULL,
-  "description" VARCHAR, 
+  "description" VARCHAR,
   "url" VARCHAR NOT NULL,
   "stock" JSON NOT NULL,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (store_id) 
+    FOREIGN KEY (store_id)
       REFERENCES stores(id)
       ON DELETE CASCADE
 );
@@ -57,7 +57,7 @@ CREATE TABLE orders (
   "status" VARCHAR NOT NULL,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (customer) 
+    FOREIGN KEY (customer)
       REFERENCES users(id)
       ON DELETE CASCADE
 );
@@ -71,13 +71,13 @@ CREATE TABLE orderline (
   "quantity" INT NOT NULL,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedat" TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (order_id) 
+    FOREIGN KEY (order_id)
       REFERENCES orders(id)
       ON DELETE CASCADE,
-    FOREIGN KEY (product_id) 
+    FOREIGN KEY (product_id)
       REFERENCES products(id)
       ON DELETE CASCADE,
-    FOREIGN KEY (store_id) 
+    FOREIGN KEY (store_id)
       REFERENCES stores(id)
       ON DELETE CASCADE
 );

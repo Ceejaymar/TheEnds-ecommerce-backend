@@ -2,7 +2,7 @@ const express = require('express');
 const productRouter = express.Router();
 const ProductService = require('../services/product');
 
-// Get all products info 
+// Get all products info
 productRouter.get('/', (req, res, next) => {
   ProductService.readAllProducts()
     .then(data => {
@@ -13,7 +13,7 @@ productRouter.get('/', (req, res, next) => {
     });
 });
 
-// Get product info 
+// Get product info
 productRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
 

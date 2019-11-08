@@ -3,7 +3,7 @@ const ProductService = {};
 
 ProductService.readAllProducts = () => {
   const sql = `
-    SELECT * 
+    SELECT *
     FROM products
   `;
   return db.any(sql);
@@ -11,9 +11,9 @@ ProductService.readAllProducts = () => {
 
 ProductService.read = (id) => {
   const sql = `
-    SELECT * 
+    SELECT *
     FROM products
-    WHERE 
+    WHERE
       products.id = $[id]
   `;
   return db.one(sql, { id });
@@ -21,10 +21,10 @@ ProductService.read = (id) => {
 
 ProductService.create = (store_id, name, price, category, description, url, stock) => {
   const sql = `
-    INSERT INTO 
+    INSERT INTO
       products (store_id, name, price, category, description, url, stock)
     VALUES
-      ($[store_id], $[name], $[price], $[category], $[description], $[url], $[stock])  
+      ($[store_id], $[name], $[price], $[category], $[description], $[url], $[stock])
     RETURNING id
   `;
   return db.one(sql, { store_id, name, price, category, description, url, stock });
@@ -32,17 +32,17 @@ ProductService.create = (store_id, name, price, category, description, url, stoc
 
 ProductService.update = (id, name, price, category, description, url, stock) => {
   const sql = `
-    UPDATE 
+    UPDATE
       products
     SET
-      name = $[name], 
-      price = $[price], 
-      category = $[category], 
-      description = $[description], 
-      url = $[url], 
+      name = $[name],
+      price = $[price],
+      category = $[category],
+      description = $[description],
+      url = $[url],
       stock = $[stock],
       updatedat = NOW()
-    WHERE 
+    WHERE
       products.id = $[id]
   `;
   return db.none(sql, { id, name, price, category, description, url, stock });
@@ -50,9 +50,9 @@ ProductService.update = (id, name, price, category, description, url, stock) => 
 
 ProductService.delete = (id) => {
   const sql = `
-    DELETE FROM 
-      products 
-    WHERE 
+    DELETE FROM
+      products
+    WHERE
       id = $[id]
   `;
   return db.none(sql, { id });

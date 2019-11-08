@@ -12,7 +12,7 @@ OrderService.readAllOrders = () => {
 
 OrderService.read = (id) => {
   const sql = `
-    SELECT  
+    SELECT
       orders.id AS orders_id,
       orders.customer,
       orders.total,
@@ -37,7 +37,7 @@ OrderService.read = (id) => {
 
 OrderService.create = (customer, total, status) => {
   const sql = `
-    INSERT INTO 
+    INSERT INTO
       orders (customer, total, status)
     VALUES
       ($[customer], $[total], $[status])
@@ -61,9 +61,9 @@ OrderService.update = (id, status) => {
 
 OrderService.delete = (id) => {
   const sql = `
-  DELETE FROM 
+  DELETE FROM
     orders
-  WHERE 
+  WHERE
     orders.id = $[id]
   `;
   return db.none(sql, { id });

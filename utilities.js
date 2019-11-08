@@ -1,4 +1,4 @@
-const firebase  =  require('./firebase');
+const firebase = require('./firebase');
 
 const checkToken = (req, res, next) => {
   const { token } = req.body;
@@ -11,7 +11,6 @@ const checkToken = (req, res, next) => {
       res.json('ERROR!!!!')
     });
 }
-
 
 module.exports = {
   checkToken
