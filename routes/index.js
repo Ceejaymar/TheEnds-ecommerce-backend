@@ -10,4 +10,6 @@ router.use('/order', require('./order'));
 router.use('/store', require('./store'));
 router.use('/product', require('./product'));
 
+router.use('/checkout', require('./stripeCheckout'));
+
 module.exports = router;
