@@ -5,3 +5,5 @@ config.js
 firebase-admin-key.json
 
 .env
+
+.DS_Store
