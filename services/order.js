@@ -9,7 +9,6 @@ OrderService.readAllOrders = () => {
   return db.any(sql);
 };
 
-
 OrderService.read = (id) => {
   const sql = `
     SELECT

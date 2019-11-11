@@ -47,7 +47,7 @@ stripeRouter.post('/', async (req, res) => {
   catch (error) {
     console.error("Error:", error);
     status = "failure";
-  }
+  };
 
   res.json({ error, status });
 });

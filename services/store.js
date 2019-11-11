@@ -5,7 +5,7 @@ StoreService.getStoreList = () => {
   const sql = `
     SELECT *
     FROM stores
-  `
+  `;
   return db.any(sql);
 };
 
@@ -90,6 +90,6 @@ StoreService.delete = (id) => {
     stores.id = $[id]
   `;
   return db.none(sql, { id });
-}
+};
 
 module.exports = StoreService;
