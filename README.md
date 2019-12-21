@@ -8,8 +8,8 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
 
 - ### User
   - `GET '/'` : Get all users.
-  - `GET '/:id'` : Get information for a specific user <!-- Prob needs to be move to orders routes. -->
-  - `GET '/:id/orders'` : Get all orders made by a user.
+  - `GET '/:id'` : Get information for a specific user.
+  - `GET '/:id/orders'` : Get all orders made by a user. <!-- Prob needs to be moved to orders routes. -->
   - `POST '/'` : Create a new user.
   - `PUT '/:id'` :  Update an existing user.
   - `DELETE '/:id'` : Delete a user.
@@ -72,6 +72,7 @@ Use this Postman collection below to test routes.
 - Express
 - Postgres
 - SQL
+- Travis CI
 - Firebase
 
 #
