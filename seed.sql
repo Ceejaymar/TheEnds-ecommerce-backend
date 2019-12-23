@@ -34,7 +34,7 @@ CREATE TABLE stores (
       ON DELETE CASCADE
 );
 
-CREATE TABlE products (
+CREATE TABLE products (
   "id" SERIAL PRIMARY KEY,
   "store_id" INT NOT NULL,
   "name" VARCHAR NOT NULL,
