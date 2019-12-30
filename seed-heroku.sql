@@ -41,7 +41,7 @@ CREATE TABLE products (
   "name" VARCHAR NOT NULL,
   "price" MONEY NOT NULL,
   "category" VARCHAR NOT NULL,
-  "description" VARCHAR,
+  "description" VARCHAR NOT NULL,
   "url" VARCHAR NOT NULL,
   "stock" JSON NOT NULL,
   "createdat" TIMESTAMP NOT NULL DEFAULT NOW(),
