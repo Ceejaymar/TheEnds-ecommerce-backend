@@ -1,3 +1,5 @@
+[![DeepScan grade](https://deepscan.io/api/teams/6084/projects/8625/branches/107028/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=6084&pid=8625&bid=107028)
+
 # The Ends backend
 
 The Ends is a fun project I am working on to bring a lot of what I know and some new things together. Still a work in progress.
