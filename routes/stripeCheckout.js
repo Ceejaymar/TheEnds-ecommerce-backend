@@ -1,8 +1,11 @@
 const express = require('express');
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const uuid = require('uuid');
 const stripeRouter = express.Router();
+
+// Change back to one line if doesn't work
+dotenv.config();
 
 stripeRouter.post('/', async (req, res) => {
   console.log("Request:", req.body);
@@ -21,7 +24,7 @@ stripeRouter.post('/', async (req, res) => {
 
     const idempotency_key = uuid();
     const charge = await stripe.charges.create({
-      amount: product.price * 100, // todo: change product to toatl
+      amount: product.price * 100, // todo: change product to total
       currency: "usd",
       customer: customer.id,
       receipt_email: token.email,

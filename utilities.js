@@ -5,7 +5,7 @@ const checkToken = (req, res, next) => {
 
   firebase.auth().verifyIdToken(token)
     .then(function(decodedToken) {
-      const uid = decodedToken.uid;
+      // const uid = decodedToken.uid;
       next();
     }).catch(function(error) {
       res.json('ERROR!!!!')
