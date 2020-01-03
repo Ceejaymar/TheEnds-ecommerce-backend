@@ -16,7 +16,7 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `PUT '/:id'` :  Update an existing user.
   - `DELETE '/:id'` : Delete a user.
 
-- ### Store `/store`
+- ### `/store`
   - `GET '/'` : Get information for all stores.
   - `GET '/:id'` : Get information for a specific store.
   - `GET '/:id/products'` : Get all products for a store.
@@ -25,14 +25,14 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
   - `PUT '/:id'` : Update an existing store.
   - `DELETE '/:id'` : Delete a store.
 
-- ### Product `/product`
+- ### `/product`
   - `GET '/'` : Get all products.
   - `GET '/:id'` : Get information for a specific product.
   - `POST '/'` : Create a new product.
   - `PUT '/:id'` : Update an existing product.
   - `DELETE '/:id'` : Delete a product.
 
-- ### Order `/order`
+- ### `/order`
   - `GET '/'` : Get all orders.
   - `GET '/:id'` : Get information for a specific order.
   - `POST '/'` : Create new order.
