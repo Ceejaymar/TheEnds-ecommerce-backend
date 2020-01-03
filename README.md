@@ -8,7 +8,7 @@ If you would like to see The Ends frontend, click :point_right: https://github.c
 
 ## Routes
 
-- ### User `/user`
+- ### `/user`
   - `GET '/'` : Get all users.
   - `GET '/:id'` : Get information for a specific user.
   - `GET '/:id/orders'` : Get all orders made by a user. <!-- Prob needs to be moved to orders routes. -->
