@@ -59,7 +59,7 @@ Install dependencies: `npm install`
 
 Seed database: `npm run seed`
 
-Start in development mode: `npm run start:local`
+Start in development mode: `npm run dev`
 
 You can open http://localhost:3001 in your browser to get the welcome message.
 
